@@ -8,18 +8,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### Dependencies
-
-- Node.js 13.7.0
-- npm 6.13.6
-- nodemon 2.0.2
-- testing-library/jest-dom 4.2.4,
-- testing-library/react 9.5.0,
-- testing-library/user-event 7.1,
-- axios 0.19.2,
-- bulma 0.8.2,
+- @testing-library/jest-dom 4.2.4,
+- @testing-library/react 9.5.0,
+- @testing-library/user-event 7.2.1,
+- axios  0.19.2,
 - express 4.17.1,
+- nodemon 2.0.4,
 - react 16.13.1,
 - react-dom 16.13.1,
+- react-ga  2.7.0,
+- react-router-dom 5.2.0,
 - react-scripts 3.4.1,
 - request 2.88.2
 
