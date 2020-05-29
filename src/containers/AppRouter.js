@@ -5,14 +5,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Header from './Header';
+import { Header } from '../components'
 
 
 function Dummy() {
   return <h2>Dummy</h2>;
 }
 
-function MyRouter() {
+export const AppRouter = () => {
   return (
     <Router>
       <Header />
@@ -51,5 +51,3 @@ function MyRouter() {
     </Router>
   );
 }
-
-export default MyRouter;
