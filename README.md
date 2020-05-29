@@ -1,8 +1,41 @@
+# UCD Lost and Found
+
+### AUTHORS:
+
+1. Haddad, David  - 913868711
+2. Revkov, George - 916177412
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Dependencies
 
-In the project directory, you can run:
+- Node.js 13.7.0
+- npm 6.13.6
+- nodemon 2.0.2
+- testing-library/jest-dom 4.2.4,
+- testing-library/react 9.5.0,
+- testing-library/user-event 7.1,
+- axios 0.19.2,
+- bulma 0.8.2,
+- express 4.17.1,
+- react 16.13.1,
+- react-dom 16.13.1,
+- react-scripts 3.4.1,
+- request 2.88.2
+
+
+### Installation
+
+To install or update nvm (to then install node and npm), please refer to <br/>
+https://github.com/nvm-sh/nvm/blob/master/README.md
+
+## Quick Start
+
+Navigate to the project directory via the command line. <br/>
+
+### `nodemon server.js`
+
+Run this command on a seperate terminal to start up server with nodemon which automatically updates the server anytime there are new changes.
 
 ### `npm start`
 
@@ -66,3 +99,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Version
+
+1.0.0
