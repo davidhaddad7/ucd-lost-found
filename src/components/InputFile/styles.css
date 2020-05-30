@@ -1,0 +1,18 @@
+.input-file-container {
+  margin-bottom: 1em;
+}
+
+.input-file-label {
+  font-size: .75em;
+  margin-bottom: .4em;
+}
+
+.input-file-btn {
+  border: 0;
+  font-size: .7em;
+  padding: .5em;
+}
+
+.input-file-btn:active {
+  opacity: .7;
+}

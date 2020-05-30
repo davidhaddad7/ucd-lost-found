@@ -1,0 +1,17 @@
+.input-field-container {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field-label {
+  font-size: .75em;
+  margin-bottom: .4em;
+}
+
+.input-field {
+  background-color: var(--lightGray);
+  border: none;
+  font-size: .85em;
+  padding: .3em .7em;
+}
