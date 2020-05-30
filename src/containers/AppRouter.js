@@ -5,7 +5,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { Header } from '../components'
+import { NavBar } from '../components';
+import { FoundItemScreenContainer } from '.';
 
 
 function Dummy() {
@@ -15,39 +16,17 @@ function Dummy() {
 export const AppRouter = () => {
   return (
     <Router>
-      <Header logoRoutePath="/" />
-      <Switch>
-        <Route path="/">
-          <Dummy />
-        </Route>
-        <Route path="/home">
-          <Dummy />
-        </Route>
-        <Route path="/found-item">
-          <Dummy />
-        </Route>
-        <Route path="/found-item-map">
-          <Dummy />
-        </Route>
-        <Route path="/found-items-board">
-          <Dummy />
-        </Route>
-        <Route path="/found-items-search">
-          <Dummy />
-        </Route>
-        <Route path="/lost-item">
-          <Dummy />
-        </Route>
-        <Route path="/lost-item-map">
-          <Dummy />
-        </Route>
-        <Route path="/lost-items-board">
-          <Dummy />
-        </Route>
-        <Route path="/lost-items-search">
-          <Dummy />
-        </Route>
-      </Switch>
+      <NavBar logoRoutePath="/" />
+      <Route exact path="/" component={Dummy} />
+      <Route exact path="/home" component={Dummy} />
+      <Route exact path="/found-item" component={FoundItemScreenContainer} />
+      <Route exact path="/found-item-map" component={Dummy} />
+      <Route exact path="/found-items-board" component={Dummy} />
+      <Route exact path="/found-items-search" component={Dummy} />
+      <Route exact path="/lost-item" component={Dummy} />
+      <Route exact path="/lost-item-map" component={Dummy} />
+      <Route exact path="/lost-items-board" component={Dummy} />
+      <Route exact path="/lost-items-search" component={Dummy} />
     </Router>
   );
 }
