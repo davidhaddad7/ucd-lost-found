@@ -6,6 +6,7 @@ export * from './PageHeader';
 export * from './Card';
 export * from './InputField';
 export * from './Button';
+export * from './InputFile';
 export * from './common';
 export * from './BoardItemHeader';
 export * from './OpaqueButton';
