@@ -9,18 +9,21 @@ class FoundItemBoardScreen extends Component {
         <PageHeader text="Showing results for" />
 
         {/* Search Takes in Date, Category and Location*/}
-        <SearchLine />
+        <SearchLine text = "May 10th - May 17th, Phones, Quad" />
         
         <Card  bgColor={COLORS.lightBlue}>
           <BoardItemHeader text="Lost Airpods" textColor={COLORS.darkBlue}/>
           {/* Condensed Card */}
           {/* Expanded Card- if expanded*/}
-          {/* <ul>
-            <BoardItemDetail header="Category" value="Headphones" />
-            <BoardItemDetail header="Location" value="Shield Library" />
-            <BoardItemDetail header="Date" value="May 12th 4:00pm" />
+          <ul>
+            <BoardItemDetail header="Category &nbsp;" value="Headphones" />
+            <BoardItemDetail header="Location &nbsp;" value="Shield Library" />
+            <BoardItemDetail header="Date &nbsp;" value="May 12th 4:00pm" />
           </ul>
-          <BoardItemDescription text = "white apple headphones" /> */}
+
+          <BoardItemDescription text="I was studying in the library and forgot them on the tabke in the basement" textColor={COLORS.darkBlue}
+           />
+
           <div className="line-aligned-right">
           <OpaqueButton
               text="More"
