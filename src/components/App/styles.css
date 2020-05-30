@@ -1,8 +1,21 @@
-* {
+:root {
+  --darkBlue: #142a50;
+  --medBlue: #365c85;
+  --lightBlue: #b3c1d1;
+  --darkOrange: #daab27;
+  --lightOrange: #feebb1;
+  --lightGray: #e5e5e5;
+  --white: #ffffff;
+}
+
+*, body {
   outline: none;
+  font-family: Montserrat;
+  color: var(--darkBlue);
 }
 
 #globalContainer {
-  background-color: #feebb1;
+  background-color: var(--lightOrange);
   min-height: 100vh;
+  padding: 0 5vw;
 }
