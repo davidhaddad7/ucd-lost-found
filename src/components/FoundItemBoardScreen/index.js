@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PageHeader, Card, Button, OpaqueButton, SearchLine,BoardItemHeader,BoardItemDetail,BoardItemDescription} from '..'
+import { PageHeader, Card, OpaqueButton, SearchLine,BoardItemHeader,BoardItemDetail,BoardItemDescription, COLORS} from '..'
 
 class FoundItemBoardScreen extends Component {
 
@@ -8,22 +8,28 @@ class FoundItemBoardScreen extends Component {
       <section>
         <PageHeader text="Showing results for" />
 
-        {/* Searcg Takes in Date, Category and Location*/}
-        <SearchLine text="May 10th - May 17th,Phones, Squad" />
-        <Card bgColor={COLORS.medBlue}>
-          <BoardItemHeader text="..." />
+        {/* Search Takes in Date, Category and Location*/}
+        <SearchLine />
+        
+        <Card  bgColor={COLORS.lightBlue}>
+          <BoardItemHeader text="Lost Airpods" textColor={COLORS.darkBlue}/>
           {/* Condensed Card */}
-          <OpaqueButton value = "More"/>
-
           {/* Expanded Card- if expanded*/}
-            <ul>
-              <BoardItemDetail header="Category" value="Headphones" />
-              <BoardItemDetail header="Location" value="Shield Library" />
-              <BoardItemDetail header="Date" value="May 12th 4:00pm" />
-            </ul>
-            <div className = "" > </div>
-            <BoardItemDescription />
-            <OpaqueButton value = "More"/>
+          {/* <ul>
+            <BoardItemDetail header="Category" value="Headphones" />
+            <BoardItemDetail header="Location" value="Shield Library" />
+            <BoardItemDetail header="Date" value="May 12th 4:00pm" />
+          </ul>
+          <BoardItemDescription text = "white apple headphones" /> */}
+          <div className="line-aligned-right">
+          <OpaqueButton
+              text="More"
+              onClick={() => console.log("Clicked more")}
+              bgColor={COLORS.lightBlue}
+              textColor={COLORS.darkBlue}
+            />
+            
+          </div>
 
         </Card>
       </section>
@@ -31,7 +37,7 @@ class FoundItemBoardScreen extends Component {
   }
 }
 
-export { FoundItemScreen };
+export { FoundItemBoardScreen };
 
 
 

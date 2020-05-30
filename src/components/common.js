@@ -1,7 +1,7 @@
 export const COLORS = {
   darkBlue: "#142a50",
   medBlue: "#365c85",
-  asphalt: "#b3c1d1",
+  lightBlue: "#b3c1d1",
   darkOrange: "#daab27",
   lightOrange: "#feebb1",
   lightGray: "#e5e5e5",
