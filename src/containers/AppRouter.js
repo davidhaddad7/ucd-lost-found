@@ -15,7 +15,7 @@ function Dummy() {
 export const AppRouter = () => {
   return (
     <Router>
-      <Header />
+      <Header logoRoutePath="/" />
       <Switch>
         <Route path="/">
           <Dummy />
