@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles.css';
+import { Colors } from '../../lib';
 import {
   Header,
   Card,
@@ -7,12 +8,16 @@ import {
   FakeSearchField,
   InputTextArea,
   Button,
-  InputFile,
-  COLORS
+  InputFile
 } from '..';
 
 
 class FoundItemScreen extends Component {
+
+  constructor(props) {
+    super(props);
+    props.setBgColor(Colors.lightOrange);
+  }
 
   render() {
     return (
@@ -28,8 +33,8 @@ class FoundItemScreen extends Component {
                 <Button
                   text="Next"
                   onClick={() => console.log("Clicked")}
-                  bgColor={COLORS.darkOrange}
-                  textColor={COLORS.white}
+                  bgColor={Colors.darkOrange}
+                  textColor={Colors.white}
                 />
               </div>
             </Card>

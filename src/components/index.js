@@ -8,4 +8,3 @@ export * from './Button';
 export * from './InputFile';
 export * from './InputTextArea'
 export * from './FakeSearchField';
-export * from './common';
