@@ -1,13 +1,26 @@
-.btn-style {
+.btn {
   border: 0;
   border-radius: .5em;
   font-size: .9em;
+}
+
+.btn:active {
+  opacity: .7;
+}
+
+.btn-size-medium {
   padding: .5em 1em;
 }
 
-.btn-style:active {
-  opacity: .7;
+.btn-size-small {
+  padding: .3em 1em;
+  font-size: .8em;
 }
+
+.btn-size-big {
+  font-size: 10em;
+}
+
 
 /* Tablets & landscape mode phones */
 @media only screen and (min-width: 700px) {

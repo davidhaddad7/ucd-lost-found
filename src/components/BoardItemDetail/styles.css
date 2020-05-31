@@ -1,27 +1,21 @@
-.board-item-detail-title{
-  font-weight: 600;
+.BoardItemDetail-main-container {
+  font-size: 0.8em;
+  line-height: 1.3em;
+}
+
+.BoardItemDetail-inner-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: .5em;
+  line-height: 1.4em;
+  color: var(--black);
+}
+
+.board-item-detail-title {
+  font-weight: bold;
 }
 
 .board-item-detail{
-  padding-left: 10px;
-  font-weight: 400;
-  list-style-type:none
+  margin-left: .5em;
+  list-style-type:none;
 }
-
-.BoardItemDetail-main-container{
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-size: 0.75em;
-}
-.BoardItemDetail-inner-container{
-  display: flex;
-  flex: row;
-}
-
-.BoardItemDescription-container{
-  padding-top: 15px;
-  padding-bottom: 15px;
-  color: var (--darkBlue);
-}
-
-

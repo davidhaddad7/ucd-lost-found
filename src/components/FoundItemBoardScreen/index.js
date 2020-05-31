@@ -1,81 +1,112 @@
 import React, { Component } from 'react';
-import { Header, Card, OpaqueButton, SearchLine,BoardItemHeader,BoardItemDetail} from '..'
+import "./styles.css";
+import { Header, Card, OpaqueButton, SearchLine,BoardItemHeader,BoardItemDetail} from '..';
 import { Colors } from '../../lib'
 
+class FoundItemBoardScreen extends Component {
 
-function generate_img(image){
-  if (image){
-    return ( 
-      <div className = "board-item-image">
-        <img src = {image} alt= {image}></img>
+  // @TODO: if we implement update/refresh functionaliity,
+  // make sure state is synchronized
+  constructor(props) {
+    super(props);
+    props.setBgColor(Colors.white);
+    const { searchText, itemsData } = this.props;
+    this.state = { searchText, itemsData };
+    this.state.elapsed = {};
+    for (const itemData of itemsData) {
+      this.state.elapsed[itemData.id] = true;
+    }
+  }
+
+  renderImg(itemData) {
+    if (!itemData.image)
+      return null;
+
+    return (
+        <div>
+          <img className="board-item-image" src={itemData.image} alt={itemData.image} />
+        </div>
+    );
+  }
+
+  renderExpandButton(itemData) {
+    const isElapsed = this.state.elapsed[itemData.id];
+
+    return (
+      <OpaqueButton
+        text={isElapsed ? "Less" : "More"}
+        onClick={() => console.log("Clicked more")}
+        bgColor={Colors.lightBlue}
+        textColor={Colors.darkBlue}
+      />
+    )
+  }
+
+  renderItemDetails(itemData) {
+    const isElapsed = this.state.elapsed[itemData.id];
+
+    return (
+      <BoardItemDetail
+        category={itemData.category}
+        location={itemData.location}
+        date={itemData.date}
+        description={itemData.itemDescription}
+      />
+    );
+  }
+
+  renderItem(itemData) {
+    const isElapsed = this.state.elapsed[itemData.id];
+
+    if (!isElapsed)
+      return null;
+
+    return (
+      <div className = "item-main-content-container">
+        {this.renderImg(itemData)}
+        {this.renderItemDetails(itemData)}
       </div>
     );
   }
-  else 
-    return null;
-}
 
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listCards = numbers.map((number) =>
-    <div className = "found-item-card-container" key={number.id.toString()}>
-      {/* <Card  bgColor={Colors.lightBlue}>
-        <BoardItemHeader text={number.itemName} textColor={Colors.darkBlue}/>
-          <OpaqueButton
-            text="More"
-            onClick={() => console.log("Clicked more")}
-            bgColor={Colors.lightBlue}
-            textColor={Colors.darkBlue}
-          />
-        
-      </Card> */}
-      <Card  bgColor={Colors.lightBlue}>
-        <BoardItemHeader text={number.itemName} textColor={Colors.darkBlue}/>
+  renderBoardItems() {
+    const listCards = this.state.itemsData.map((itemData) => {
+      const key = itemData.id.toString();
 
-        <div className = "board-item-container">
-          {generate_img(number.image) ? generate_img(number.image):null}
-          <BoardItemDetail category={number.category} location={number.location} date={number.date} description = {number.itemDescription}/>
-        </div>
-        <div className="line-aligned-right">
-          <OpaqueButton
-            text="More"
-            onClick={() => console.log("Clicked more")}
-            bgColor={Colors.lightBlue}
-            textColor={Colors.darkBlue}
-          />
-        </div>
-      </Card>
-    </div>
-  );
-  return (
-    <ul>{listCards}</ul>
-  );
-}
+      return (
+          <div className="item-card" key={key}>
+            <Card bgColor={Colors.lightBlue}>
+              <div className="item-card-inner-container">
+                <BoardItemHeader text={itemData.itemName} textColor={Colors.darkBlue}>
+                  {this.renderItem(itemData)}
+                </BoardItemHeader>
+                {this.renderExpandButton(itemData)}
+              </div>
+            </Card>
+          </div>
+      );
+    });
 
-const numbers = [
-  {"id":1,"category":"headphones", "date":"May 11th 4:00pm","itemName":"Beats Headphones", "itemDescription":"I was studying in the library and forgot them on the table in the basement", "location": "Shields Library","image":"dicks"},
-  {"id":2,"category":"bag", "date":"May 12th 4:00pm","itemName":"Beats bag", "itemDescription":"I was studying in the library and forgot them on the table in the basement", "location": "Quad main campus", "image":"dicks2"},
-  {"id":3,"category":"glasses", "date":"May 13th 4:00pm","itemName":"Beats glasses", "itemDescription":"I was studying in the library and forgot them on the table in the basement", "location": "dairy rd","image":"dicks3"},
-  {"id":4,"category":"eyes", "date":"May 14th 4:00pm","itemName":"Beats eyes", "itemDescription":"I was studying in the library and forgot them on the table in the basement", "location": "Kemper Hall","image":""},
-  {"id":5,"category":"soap", "date":"May 15th 4:00pm","itemName":"Beats soap", "itemDescription":"I was studying in the library and forgot them on the table in the basement", "location": "Arboretum", "image":"https://ibb.co/k43G5vk"}
-];
-class FoundItemBoardScreen extends Component {
+    return listCards;
+  }
 
   render() {
     return (
       <section>
         <Header text="Showing results for" />
-
-        {/* Search Takes in Date, Category and Location*/}
-        <SearchLine text = "May 10th - May 17th, Phones, Quad" />
-        
-        <NumberList numbers={numbers} />
+        <SearchLine text={this.state.searchText} />
+        {this.renderBoardItems()}
       </section>
     );
   }
 }
 
 export { FoundItemBoardScreen };
+
+
+
+
+
 
 
 
@@ -117,5 +148,3 @@ export { FoundItemBoardScreen };
 //     }
 //   }
 // }
-
-

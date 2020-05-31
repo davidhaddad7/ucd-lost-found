@@ -6,13 +6,15 @@
   --lightOrange: #feebb1;
   --lightGray: #e5e5e5;
   --white: #ffffff;
+  --black: #000000;
 }
 
-*, body {
+body {
   outline: none;
   font-family: Montserrat;
   color: var(--darkBlue);
-  overflow: auto;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
 #globalContainer {
@@ -29,6 +31,10 @@ section {
 
 /* Tablets & landscape mode phones */
 @media only screen and (min-width: 700px) {
+
+  *, body {
+    font-size: 16px;
+  }
 
   #innerGlobalContainer {
     margin: 0 10vw;

@@ -1,12 +1,20 @@
-.line-aligned-right {
-  display: flex;
-  justify-content: flex-end;
-}
-.board-item-container{
-  display: flex;
-  }
-
-.found-item-card{
-  margin-top: 20px;
+.item-card {
+  margin-top: 1em;
 }
 
+.item-card-inner-container {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.item-main-content-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.board-item-image {
+  width: 25vw;
+  height: auto;
+  padding-right: .5em;
+}
