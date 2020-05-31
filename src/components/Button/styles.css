@@ -8,3 +8,13 @@
 .btn-style:active {
   opacity: .7;
 }
+
+/* Tablets & landscape mode phones */
+@media only screen and (min-width: 700px) {
+
+  .btn-style {
+    border-radius: .6em;
+    font-size: 1em;
+    padding: .7em 1.4em;
+  }
+}
