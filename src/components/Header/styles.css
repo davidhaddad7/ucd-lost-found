@@ -1,0 +1,15 @@
+h2.header {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: .7em;
+}
+
+/* Tablets & landscape mode phones */
+@media only screen and (min-width: 700px) {
+
+  h2.header {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+  }
+
+}

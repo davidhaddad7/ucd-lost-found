@@ -1,10 +1,10 @@
 import React from 'react';
 import './styles.css';
-import { COLORS } from '..';
+import { Colors } from '../../lib';
 
 export const Card = (props) => {
 
-  const bgColor = props.bgColor || COLORS.white;
+  const bgColor = props.bgColor || Colors.white;
 
   return (
     <div

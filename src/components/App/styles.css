@@ -12,10 +12,44 @@
   outline: none;
   font-family: Montserrat;
   color: var(--darkBlue);
+  overflow: auto;
 }
 
 #globalContainer {
-  background-color: var(--lightOrange);
   min-height: 100vh;
-  padding: 0 5vw;
+}
+
+#innerGlobalContainer {
+  margin: 0 5vw;
+}
+
+section {
+  margin-bottom: 1em;
+}
+
+/* Tablets & landscape mode phones */
+@media only screen and (min-width: 700px) {
+
+  #innerGlobalContainer {
+    margin: 0 10vw;
+  }
+
+  section {
+    margin-bottom: 2em;
+  }
+}
+
+/* Desktopes */
+@media only screen and (min-width: 1025px) {
+
+  #globalContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  #innerGlobalContainer {
+    flex-grow: 1;
+    max-width: 900px;
+    margin: 0;
+  }
 }
