@@ -1,5 +1,12 @@
 .line-aligned-right {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
+}
+.board-item-container{
+  display: flex;
   }
-  
+
+.found-item-card{
+  margin-top: 20px;
+}
+

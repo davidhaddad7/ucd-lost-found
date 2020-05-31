@@ -1,14 +1,27 @@
-.board-item-detail-bold{
+.board-item-detail-title{
   font-weight: 600;
 }
 
 .board-item-detail{
+  padding-left: 10px;
   font-weight: 400;
+  list-style-type:none
 }
 
-
-.BoardItemDetail-container{
+.BoardItemDetail-main-container{
   padding-top: 5px;
   padding-bottom: 5px;
+  font-size: 0.75em;
 }
+.BoardItemDetail-inner-container{
+  display: flex;
+  flex: row;
+}
+
+.BoardItemDescription-container{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: var (--darkBlue);
+}
+
 

@@ -12,6 +12,5 @@ export * from './BoardItemHeader';
 export * from './OpaqueButton';
 export * from './SearchLine';
 export * from './BoardItemDetail';
-export * from './BoardItemDescription';
 
 
