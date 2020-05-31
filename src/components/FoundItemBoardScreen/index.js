@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { PageHeader, Card, OpaqueButton, SearchLine,BoardItemHeader,BoardItemDetail,BoardItemDescription, COLORS} from '..'
-
+import { Header, Card, OpaqueButton, SearchLine,BoardItemHeader,BoardItemDetail} from '..'
+import { Colors } from '../../lib'
 
 
 function generate_img(image){
@@ -19,18 +19,18 @@ function NumberList(props) {
   const numbers = props.numbers;
   const listCards = numbers.map((number) =>
     <div className = "found-item-card-container" key={number.id.toString()}>
-      {/* <Card  bgColor={COLORS.lightBlue}>
-        <BoardItemHeader text={number.itemName} textColor={COLORS.darkBlue}/>
+      {/* <Card  bgColor={Colors.lightBlue}>
+        <BoardItemHeader text={number.itemName} textColor={Colors.darkBlue}/>
           <OpaqueButton
             text="More"
             onClick={() => console.log("Clicked more")}
-            bgColor={COLORS.lightBlue}
-            textColor={COLORS.darkBlue}
+            bgColor={Colors.lightBlue}
+            textColor={Colors.darkBlue}
           />
         
       </Card> */}
-      <Card  bgColor={COLORS.lightBlue}>
-        <BoardItemHeader text={number.itemName} textColor={COLORS.darkBlue}/>
+      <Card  bgColor={Colors.lightBlue}>
+        <BoardItemHeader text={number.itemName} textColor={Colors.darkBlue}/>
 
         <div className = "board-item-container">
           {generate_img(number.image) ? generate_img(number.image):null}
@@ -40,8 +40,8 @@ function NumberList(props) {
           <OpaqueButton
             text="More"
             onClick={() => console.log("Clicked more")}
-            bgColor={COLORS.lightBlue}
-            textColor={COLORS.darkBlue}
+            bgColor={Colors.lightBlue}
+            textColor={Colors.darkBlue}
           />
         </div>
       </Card>
@@ -64,7 +64,7 @@ class FoundItemBoardScreen extends Component {
   render() {
     return (
       <section>
-        <PageHeader text="Showing results for" />
+        <Header text="Showing results for" />
 
         {/* Search Takes in Date, Category and Location*/}
         <SearchLine text = "May 10th - May 17th, Phones, Quad" />
@@ -86,7 +86,7 @@ export { FoundItemBoardScreen };
 // function generateCards() {
 //   for (item in list_of_dicts) {
 //     if (image is present) {
-//       <Card bgColor={COLORS.medBlue}>
+//       <Card bgColor={Colors.medBlue}>
 //         <BoardItemHeader text="..." />
 //           <div className="board-card-inner-container">
 //             <div>
@@ -104,7 +104,7 @@ export { FoundItemBoardScreen };
 
 //       </Card>
 //     } else {
-//       <Card bgColor={COLORS.medBlue}>
+//       <Card bgColor={Colors.medBlue}>
 //         <BoardItemHeader text="..." />
 //           <ul>
 //             <BoardItemDetail header="Category" value="Headphones" />

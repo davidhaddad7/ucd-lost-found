@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
-import {Button,COLORS} from '..'
+import { Button } from '..';
+import { Colors } from '../../lib';
 
 
 export const SearchLine = (props) => {
@@ -15,8 +16,8 @@ export const SearchLine = (props) => {
         <Button
                 text="Edit Search"
                 onClick={() => console.log("Edit Search")}
-                bgColor={COLORS.medBlue}
-                textColor={COLORS.white}
+                bgColor={Colors.medBlue}
+                textColor={Colors.white}
         />
       </div>
     </div>
