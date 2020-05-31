@@ -1,0 +1,16 @@
+.fake-search-field-btn {
+  background-color: var(--white);
+  background-image: url('../../assets/search-solid.svg');
+  border: 0;
+  font-size: .6em;
+  background-repeat: no-repeat;
+  background-position: left;
+  transform: scaleX(-1);
+  flex: 1;
+}
+
+.fake-search-field-container {
+  background-color: white;
+  padding: .3em;
+  display: flex;
+}

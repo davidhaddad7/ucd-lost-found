@@ -19,3 +19,7 @@
   min-height: 100vh;
   padding: 0 5vw;
 }
+
+section {
+  margin-bottom: 1em;
+}
