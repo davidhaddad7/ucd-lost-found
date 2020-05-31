@@ -11,6 +11,16 @@
 
 .fake-search-field-container {
   background-color: white;
-  padding: .3em;
+  padding: .5em;
   display: flex;
+}
+
+
+/* Tablets & landscape mode phones */
+@media only screen and (min-width: 700px) {
+
+  .fake-search-field-btn {
+    font-size: .8em;
+  }
+
 }

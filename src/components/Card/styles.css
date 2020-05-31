@@ -1,3 +1,13 @@
 .card {
   padding: 1em;
 }
+
+
+/* Tablets & landscape mode phones */
+@media only screen and (min-width: 700px) {
+
+  .card {
+    padding: 1.5em;
+  }
+
+}

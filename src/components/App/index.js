@@ -5,7 +5,9 @@ import { AppRouter } from '../../containers';
 export const App  = (props) => {
   return (
     <div id="globalContainer">
-      <AppRouter />
+      <div id="innerGlobalContainer">
+        <AppRouter />
+      </div>
     </div>
   );
 };

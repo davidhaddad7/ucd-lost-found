@@ -17,3 +17,18 @@
   resize: none;
   height: 8em;
 }
+
+
+/* Tablets & landscape mode phones */
+@media only screen and (min-width: 700px) {
+
+  .input-textarea-label {
+    font-size: 1em;
+  }
+
+  .input-textarea {
+    font-size: 1em;
+  }
+
+
+}

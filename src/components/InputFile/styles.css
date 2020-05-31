@@ -1,5 +1,5 @@
 .input-file-container {
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .input-file-label {
@@ -11,8 +11,24 @@
   border: 0;
   font-size: .7em;
   padding: .5em;
+  background-color: var(--lightGray);
 }
 
 .input-file-btn:active {
   opacity: .7;
+}
+
+
+/* Tablets & landscape mode phones */
+@media only screen and (min-width: 700px) {
+
+  .input-file-label {
+    font-size: 1em;
+  }
+
+  .input-file-btn {
+    font-size: 1em;
+    padding: .6em;
+  }
+
 }
