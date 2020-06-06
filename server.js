@@ -10,7 +10,6 @@ let imageName ="";
 // This creates an interface to the file if it already exists, and makes the 
 // file if it does not. 
 const lostAndFoundDB = new sql.Database("./lostandfound.db");
-let queryString = null;
 
 let cmd = " SELECT name FROM sqlite_master WHERE type='table' AND name='lostFoundTable' ";
 lostAndFoundDB.get(cmd, function (err, val) {
@@ -26,7 +25,7 @@ lostAndFoundDB.get(cmd, function (err, val) {
 function createlostFoundDB() {
   // explicitly declaring the rowIdNum protects rowids from changing if the 
   // table is compacted; not an issue here, but good practice
-  const cmd = 'CREATE TABLE lostFoundTable (rowIdNum INTEGER PRIMARY KEY,queryString TEXT, title TEXT, category TEXT, description TEXT, location TEXT)';
+  const cmd = 'CREATE TABLE lostFoundTable (rowIdNum INTEGER PRIMARY KEY,  image TEXT,title TEXT, category TEXT, description TEXT, location TEXT)';
   lostAndFoundDB.run(cmd, function(err, val) {
     if (err) {
       console.log("Database creation failure",err.message);
@@ -34,16 +33,6 @@ function createlostFoundDB() {
       console.log("Created database");
     }
   });
-}
-
-function makeID(length) {
-  var result           = '';
-  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  var charactersLength = characters.length;
-  for ( var i = 0; i < length; i++ ) {
-     result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
 }
 
 let storage = multer.diskStorage({
@@ -61,23 +50,21 @@ let upload = multer({storage: storage});
 // begin constructing the server pipeline
 const app = express();
 
-function handlelostFoundList(request, response, next) {  
-  // Example of just getting first row
-  let url = request.headers.referer;
-  let queryString = url.split("=");
-
-  let queryID = queryString[1];
-  let xcmd = ' SELECT * FROM lostFoundTable WHERE queryString = ?';
-  lostAndFoundDB.get( xcmd,queryID,dataCallback );
+// function handlelostFoundList(request, response, next) {  
+//   // Example of just getting first row
+//   let title  ;
+ 
+//   let xcmd = ' SELECT * FROM lostFoundTable WHERE title = ?';
+//   lostAndFoundDB.get( xcmd,queryID,dataCallback );
     
-  function dataCallback( err, rowData ) {    
-     if (err) { console.log("error: ",err.message); }
-     else { 
-       console.log( "got: ", rowData);   
-       response.send(JSON.stringify(rowData));
-     }
-  }
-};
+//   function dataCallback( err, rowData ) {    
+//      if (err) { console.log("error: ",err.message); }
+//      else { 
+//        console.log( "got: ", rowData);   
+//        response.send(JSON.stringify(rowData));
+//      }
+//   }
+// };
 
 
 
@@ -94,7 +81,7 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/public/creator.html');
 });
 
-app.get("/getPostcard", handlelostFoundList);
+// app.get("/getPostcard", handlelostFoundList);
 
 app.get("/sendUploadToAPI", function(request, response){
         sendMediaStore(imageName, request, response);
@@ -122,24 +109,25 @@ app.use(bodyParser.json());
 // gets JSON data into req.body
 app.post('/postItemFound', function (request, response) {
 
-  queryString = makeID(22);
-  let image= "http://ecs162.org:3000/images/davhaddad/" + imageName;
-  let title= request.title;
+
+  // let image= "http://ecs162.org:3000/images/davhaddad/" + imageName;
+  let image = request.body.image;
+  let title= request.body.title;
   let category = request.body.category;
   let description = request.body.description;
   let location = request.body.location;
   console.log(image,title,category,description,location);
   // lostAndFoundDB.run(DROP TABLE addresses);
   // put new item into database
-  cmd = "INSERT INTO lostFoundTable (queryString, image,font,color,message) VALUES (?,?,?,?,?) ";
-  lostAndFoundDB.run(cmd,queryString,image,title,category,description,location, function(err) {
+  cmd = "INSERT INTO lostFoundTable (image,title,category,description, location) VALUES (?,?,?,?,?) ";
+  lostAndFoundDB.run(cmd,image,title,category,description,location, function(err) {
     if (err) {
       console.log("DB insert error",err.message);
       //next();
     } else {
       let newId = this.lastID; // the rowid of last inserted item
       console.log("new ID :",newId);
-      response.send(queryString);
+      response.send(title);
     }
 
   });
@@ -150,7 +138,7 @@ app.post('/postItemFound', function (request, response) {
 // file postcardData.json is stored in /public
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(process.env.PORT || "5000", function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
 
