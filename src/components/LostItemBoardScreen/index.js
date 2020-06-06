@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BoardItem, Header, SearchLine } from '..';
 import { Colors } from '../../lib';
 
-class FoundItemBoardScreen extends Component {
+class LostItemBoardScreen extends Component {
 
   constructor(props) {
     super(props);
@@ -15,7 +15,7 @@ class FoundItemBoardScreen extends Component {
     return this.state.itemsData.map(item => (
       <BoardItem
         key={item.id}
-        bgColor={Colors.lightOrange}
+        bgColor={Colors.lightBlue}
         itemData={item}
       />
     ));
@@ -32,4 +32,4 @@ class FoundItemBoardScreen extends Component {
   }
 }
 
-export { FoundItemBoardScreen };
+export { LostItemBoardScreen };

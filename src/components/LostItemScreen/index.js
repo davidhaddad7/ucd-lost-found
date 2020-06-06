@@ -12,11 +12,11 @@ import {
 } from '..';
 
 
-class FoundItemScreen extends Component {
+class LostItemScreen extends Component {
 
   constructor(props) {
     super(props);
-    props.setBgColor(Colors.lightOrange);
+    props.setBgColor(Colors.lightBlue);
   }
 
   buttonStyle = {
@@ -28,13 +28,13 @@ class FoundItemScreen extends Component {
     return (
         <main>
           <section>
-            <Header text="Input the found item" />
+            <Header text="Input the lost item" />
             <Card>
               <InputField label="Title" />
               <InputField label="Category" />
               <InputTextArea label="Description" />
               <InputFile label="Attach a photo (optional)" />
-              <div className="found-item-screen-line-aligned-right">
+              <div className="lost-items-line-aligned-right">
                 <Button
                   text="Next"
                   onClick={() => console.log("Clicked")}
@@ -52,4 +52,4 @@ class FoundItemScreen extends Component {
   }
 }
 
-export { FoundItemScreen };
+export { LostItemScreen };
