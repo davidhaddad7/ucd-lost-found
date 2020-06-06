@@ -1,4 +1,37 @@
-.line-aligned-right {
+.loginContainer{
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
+
+.library-img-container {
+  display: flex;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex:1;
+}
+
+img {
+  width: 100%;
+}
+
+.image {
+    flex-shrink: 0;
+}
+
+/* .fake-search-field-container {
+  background-color: white;
+  padding: .5em;
+  display: flex;
+} */
+
+
+/* Tablets & landscape mode phones */
+/* @media only screen and (min-width: 700px) {
+
+  .fake-search-field-btn {
+    font-size: .8em;
+  }
+
+} */
