@@ -9,7 +9,6 @@ export * from './Button';
 export * from './InputFile';
 export * from './OpaqueButton';
 export * from './SearchLine';
-export * from './BoardItemDetail';
 export * from './InputTextArea'
 export * from './FakeSearchField';
 export * from './BoardItem';

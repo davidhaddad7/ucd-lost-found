@@ -5,15 +5,16 @@
 }
 
 .input-field-label {
-  font-size: .75em;
+  font-size: .9em;
   margin-bottom: .4em;
 }
 
 .input-field {
   background-color: var(--lightGray);
   border: none;
-  font-size: .85em;
+  font-size: .9em;
   padding: .3em .7em;
+  color: var(--darkBlue);
 }
 
 

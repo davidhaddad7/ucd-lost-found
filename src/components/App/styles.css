@@ -9,7 +9,7 @@
   --black: #000000;
 }
 
-input:focus {
+input:focus, textarea:focus {
   outline: none;
 }
 
@@ -21,23 +21,28 @@ body {
   font-size: 14px;
 }
 
+textarea, input {
+  font-family: Montserrat;
+}
+
 #globalContainer {
   min-height: 100vh;
 }
 
 #innerGlobalContainer {
   margin: 0 5vw;
+  padding-bottom: 1px;
 }
 
 section {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 /* Tablets & landscape mode phones */
 @media only screen and (min-width: 700px) {
 
   *, body {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   #innerGlobalContainer {

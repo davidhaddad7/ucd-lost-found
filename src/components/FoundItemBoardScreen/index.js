@@ -14,7 +14,11 @@ class FoundItemBoardScreen extends Component {
 
   renderBoardItems() {
     return this.state.itemsData.map(item => (
-      <BoardItem key={item.id} bgColor={Colors.lightBlue} itemData={item} />
+      <BoardItem
+        key={item.id}
+        bgColor={Colors.lightBlue}
+        itemData={item}
+      />
     ));
   }
 

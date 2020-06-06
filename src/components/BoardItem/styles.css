@@ -16,6 +16,7 @@
   flex: 5;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .board-item-details-container {
@@ -53,4 +54,30 @@
 .board-item-description {
   margin-top: .5em;
   line-height: 1.3em;
+}
+
+
+/* Tablets & landscape mode phones */
+@media only screen and (min-width: 700px) {
+
+  .board-item-header {
+    font-size: 1.4em;
+  }
+
+  .board-item-image {
+    width: 30vw;
+  }
+
+  .board-item-details-container {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+
+  .board-item-image {
+    width: 20vw;
+  }
+
 }

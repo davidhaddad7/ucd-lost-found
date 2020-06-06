@@ -1,6 +1,6 @@
 h2.header {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.4em;
   margin-bottom: .7em;
 }
 
@@ -8,8 +8,7 @@ h2.header {
 @media only screen and (min-width: 700px) {
 
   h2.header {
-    font-size: 1.8em;
+    font-size: 2em;
     margin-bottom: 0.5em;
   }
-
 }
