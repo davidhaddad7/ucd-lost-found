@@ -1,0 +1,56 @@
+.board-item-card {
+  margin-top: 1em;
+}
+
+.board-item-header-container {
+  display: flex;
+}
+
+.board-item-header-btn {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.board-item-header {
+  flex: 5;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.board-item-details-container {
+  margin-top: 1em;
+  display: flex;
+  font-size: 0.8em;
+  line-height: 1.5em;
+}
+
+.item-details-description-container {
+  flex: 1;
+}
+
+.item-details-description-container li {
+  display: flex;
+}
+
+.board-item-label {
+  min-width: 5.5em;
+  font-weight: bold;
+  color: var(--black);
+}
+
+.board-item-label-details {
+  color: var(--black);
+  flex:10;
+}
+
+.board-item-image {
+  width: 28vw;
+  height: auto;
+  margin-right: 1em;
+}
+
+.board-item-description {
+  margin-top: .5em;
+  line-height: 1.3em;
+}

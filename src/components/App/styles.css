@@ -9,6 +9,10 @@
   --black: #000000;
 }
 
+input:focus {
+  outline: none;
+}
+
 body {
   outline: none;
   font-family: Montserrat;

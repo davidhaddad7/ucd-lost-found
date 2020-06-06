@@ -15,8 +15,8 @@ const MOCKED_DATA = {
       id:1,
       category:"headphones",
       date:"May 11th 4:00pm",
-      itemName:"Beats Headphones",
-      itemDescription:"I was studying in the library and forgot them on the table in the basement",
+      name:"Beats Headphones",
+      description:"I was studying in the library and forgot them on the table in the basement",
       location: "Shields Library",
       image:null
     },
@@ -24,8 +24,8 @@ const MOCKED_DATA = {
       id:2,
       category:"bag",
       date:"May 12th 4:00pm",
-      itemName:"Beats bag",
-      itemDescription:"I was studying in the library and forgot them on the table in the basement",
+      name:"Beats bag",
+      description:"I was studying in the library and forgot them on the table in the basement",
       location: "Shields Library",//"Quad main campus",
       image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Bucephala-albeola-010.jpg/440px-Bucephala-albeola-010.jpg"
     },
@@ -33,8 +33,8 @@ const MOCKED_DATA = {
       id:3,
       category:"glasses",
       date:"May 13th 4:00pm",
-      itemName:"Beats glasses",
-      itemDescription:"I was studying in the library and forgot them on the table in the basement",
+      name:"Beats glasses",
+      description:"I was studying in the library and forgot them on the table in the basement",
       location: "dairy rd",
       image:null
     },
@@ -42,8 +42,8 @@ const MOCKED_DATA = {
       id:4,
       category:"eyes",
       date:"May 14th 4:00pm",
-      itemName:"Beats eyes",
-      itemDescription:"I was studying in the library and forgot them on the table in the basement",
+      name:"Beats eyes",
+      description:"I was studying in the library and forgot them on the table in the basement",
       location: "Kemper Hall",
       image:null
     },
@@ -51,8 +51,8 @@ const MOCKED_DATA = {
       id:5,
       category:"soap",
       date:"May 15th 4:00pm",
-      itemName:"Beats soap",
-      itemDescription:"I was studying in the library and forgot them on the table in the basement",
+      name:"Beats soap",
+      description:"I was studying in the library and forgot them on the table in the basement",
       location: "Arboretum",
       image:null
     }

@@ -1,93 +1,21 @@
 import React, { Component } from 'react';
+import { BoardItem, Header, SearchLine } from '..';
+import { Colors } from '../../lib';
 import "./styles.css";
-import { Header, Card, OpaqueButton, SearchLine,BoardItemHeader,BoardItemDetail} from '..';
-import { Colors } from '../../lib'
 
 class FoundItemBoardScreen extends Component {
 
-  // @TODO: if we implement update/refresh functionaliity,
-  // make sure state is synchronized
   constructor(props) {
     super(props);
     props.setBgColor(Colors.white);
     const { searchText, itemsData } = this.props;
     this.state = { searchText, itemsData };
-    this.state.elapsed = {};
-    for (const itemData of itemsData) {
-      this.state.elapsed[itemData.id] = true;
-    }
-  }
-
-  renderImg(itemData) {
-    if (!itemData.image)
-      return null;
-
-    return (
-        <div>
-          <img className="board-item-image" src={itemData.image} alt={itemData.image} />
-        </div>
-    );
-  }
-
-  renderExpandButton(itemData) {
-    const isElapsed = this.state.elapsed[itemData.id];
-
-    return (
-      <OpaqueButton
-        text={isElapsed ? "Less" : "More"}
-        onClick={() => console.log("Clicked more")}
-        bgColor={Colors.lightBlue}
-        textColor={Colors.darkBlue}
-      />
-    )
-  }
-
-  renderItemDetails(itemData) {
-    const isElapsed = this.state.elapsed[itemData.id];
-
-    return (
-      <BoardItemDetail
-        category={itemData.category}
-        location={itemData.location}
-        date={itemData.date}
-        description={itemData.itemDescription}
-      />
-    );
-  }
-
-  renderItem(itemData) {
-    const isElapsed = this.state.elapsed[itemData.id];
-
-    if (!isElapsed)
-      return null;
-
-    return (
-      <div className = "item-main-content-container">
-        {this.renderImg(itemData)}
-        {this.renderItemDetails(itemData)}
-      </div>
-    );
   }
 
   renderBoardItems() {
-    const listCards = this.state.itemsData.map((itemData) => {
-      const key = itemData.id.toString();
-
-      return (
-          <div className="item-card" key={key}>
-            <Card bgColor={Colors.lightBlue}>
-              <div className="item-card-inner-container">
-                <BoardItemHeader text={itemData.itemName} textColor={Colors.darkBlue}>
-                  {this.renderItem(itemData)}
-                </BoardItemHeader>
-                {this.renderExpandButton(itemData)}
-              </div>
-            </Card>
-          </div>
-      );
-    });
-
-    return listCards;
+    return this.state.itemsData.map(item => (
+      <BoardItem key={item.id} bgColor={Colors.lightBlue} itemData={item} />
+    ));
   }
 
   render() {
