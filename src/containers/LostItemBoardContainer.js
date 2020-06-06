@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-import { FoundItemBoardScreen } from '../components';
+import { LostItemBoardScreen } from '../components';
 import { ThemeContext } from '../lib';
-
-
-
-
-
-
 
 const MOCKED_DATA = {
   searchText: "May 10th - May 17th, Phones, Quad",
@@ -60,7 +54,7 @@ const MOCKED_DATA = {
 }
 
 
-class FoundItemBoardContainer extends Component {
+class LostItemBoardContainer extends Component {
 
   constructor(props) {
     super(props);
@@ -73,7 +67,7 @@ class FoundItemBoardContainer extends Component {
 
   render() {
     return (
-      <FoundItemBoardScreen
+      <LostItemBoardScreen
         setBgColor={this.context.changeThemeColor}
         searchText={this.state.searchText}
         itemsData={this.state.itemsData}
@@ -82,6 +76,6 @@ class FoundItemBoardContainer extends Component {
   }
 }
 
-FoundItemBoardContainer.contextType = ThemeContext;
+LostItemBoardContainer.contextType = ThemeContext;
 
-export { FoundItemBoardContainer };
+export { LostItemBoardContainer };
