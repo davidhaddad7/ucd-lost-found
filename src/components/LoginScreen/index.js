@@ -4,6 +4,8 @@ import { Colors } from '../../lib';
 import { GoogleLogin } from 'react-google-login';
 import Logo from '../../assets/Logo.png';
 import shields from '../../assets/shields.jpg';
+// import { MapContainer } from '../GoogleMap/index';
+
 
 class LoginScreen extends Component {
 
@@ -25,7 +27,7 @@ class LoginScreen extends Component {
             <div className="library-img-container">
                 <img src={shields} alt="shields" ></img>
               </div>
->
+
             <div className="logo-img-container">
                 <img src={Logo} alt="Logo" ></img>
               </div>
@@ -42,6 +44,10 @@ class LoginScreen extends Component {
                 cookiePolicy={"single_host_origin"}
                 />
               </div>
+
+              {/* <div className="container-map">
+                <MapContainer/>
+              </div> */}
             </div>
           </section>
         </main>

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './styles.css';
 import { Colors, ThemeContext } from '../../lib';
 import { AppRouter } from '../../containers';
-// import { GoogleLogin } from 'react-google-login';
-// import { MapContainer } from '../GoogleMap/index';
+import { MapContainer } from '../GoogleMap';
 
 class App extends Component {
 
@@ -19,11 +18,6 @@ class App extends Component {
       this.setState({ themeColor: newColor });
   }
 
-  // responseGoogle=(response)=>{
-  //   console.log(response);
-  //   console.log(response.profileObj);
-  // }
-
   render() {
 
     return (
@@ -32,10 +26,14 @@ class App extends Component {
           id="globalContainer"
           style={{ backgroundColor: this.state.themeColor }}
         >
-{/* 
           <div>
-            <MapContainer/>
-          </div> */}
+            <MapContainer
+              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAbdkOabeaQhg_-ZrYUy9lbdEZrzmJpvM&v=3.exp&libraries=geometry,drawing,places"
+              loadingElement={<div style={{ height: `100px` }} />}
+              containerElement={<div style={{ height: `400px` }} />}
+              mapElement={<div style={{ height: `100px` }} />}
+            />
+          </div>
 
           <div id="innerGlobalContainer">
             <AppRouter />
