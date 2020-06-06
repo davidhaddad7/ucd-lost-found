@@ -1,0 +1,27 @@
+.searchline-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.date-cat-loc-search {
+  flex:10;
+  font-size: .95em;
+  align-self: center;
+}
+
+.search-button {
+  align-self: center;
+  flex:1;
+}
+
+
+/* Tablets & landscape mode phones */
+@media only screen and (min-width: 700px) {
+
+  .date-cat-loc-search {
+    flex:10;
+    font-size: 1.2em;
+    align-self: center;
+  }
+
+}

@@ -6,13 +6,23 @@
   --lightOrange: #feebb1;
   --lightGray: #e5e5e5;
   --white: #ffffff;
+  --black: #000000;
 }
 
-*, body {
+input:focus, textarea:focus {
+  outline: none;
+}
+
+body {
   outline: none;
   font-family: Montserrat;
   color: var(--darkBlue);
-  overflow: auto;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+textarea, input {
+  font-family: Montserrat;
 }
 
 #globalContainer {
@@ -21,14 +31,19 @@
 
 #innerGlobalContainer {
   margin: 0 5vw;
+  padding-bottom: 1px;
 }
 
 section {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 /* Tablets & landscape mode phones */
 @media only screen and (min-width: 700px) {
+
+  *, body {
+    font-size: 18px;
+  }
 
   #innerGlobalContainer {
     margin: 0 10vw;

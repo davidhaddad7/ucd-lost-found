@@ -19,6 +19,11 @@ class FoundItemScreen extends Component {
     props.setBgColor(Colors.lightOrange);
   }
 
+  buttonStyle = {
+    backgroundColor: Colors.darkOrange,
+    color: Colors.white
+  }
+
   render() {
     return (
         <main>
@@ -33,8 +38,7 @@ class FoundItemScreen extends Component {
                 <Button
                   text="Next"
                   onClick={() => console.log("Clicked")}
-                  bgColor={Colors.darkOrange}
-                  textColor={Colors.white}
+                  style={this.buttonStyle}
                 />
               </div>
             </Card>

@@ -4,7 +4,7 @@ import {
   Route
 } from "react-router-dom";
 import { NavBar } from '../components';
-import { FoundItemScreenContainer } from '.';
+import { FoundItemScreenContainer,FoundItemBoardContainer } from '.';
 
 
 function Dummy() {
@@ -19,7 +19,7 @@ export const AppRouter = () => {
       <Route exact path="/home" component={Dummy} />
       <Route exact path="/found-item" component={FoundItemScreenContainer} />
       <Route exact path="/found-item-map" component={Dummy} />
-      <Route exact path="/found-items-board" component={Dummy} />
+      <Route exact path="/found-items-board" component={FoundItemBoardContainer} />
       <Route exact path="/found-items-search" component={Dummy} />
       <Route exact path="/lost-item" component={Dummy} />
       <Route exact path="/lost-item-map" component={Dummy} />
