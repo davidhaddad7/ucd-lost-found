@@ -24,23 +24,29 @@ class FoundItemScreen extends Component {
                   description:''
                  };
 
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleCategoryChange = this.handleCategoryChange.bind(this);
-    this.handleDescriptionChange = this.handleTitleChange.bind(this);
   }
 
-  handleTitleChange(event) {
+  handleTitleChange = (event) => {
+    event.preventDefault();
     this.setState({title: event.target.value});
     console.log("title: ",this.state.title);
   }
-  handleCategoryChange(event) {
+
+  handleCategoryChange = (event) => {
     this.setState({category: event.target.value});
     console.log("category: ",this.state.category);
 
   }
-  handleDescriptionChange(event) {
+  handleDescriptionChange = (event) => {
     this.setState({description: event.target.value});
     console.log("description: ",this.state.description);
+  }
+
+  // onError
+
+  onNextButton = (event) => {
+    this.props.createNewItem();
+    this.props.navigate();
   }
 
   buttonStyle = {

@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import { FoundItemScreen } from '../components';
-import { Colors, ThemeContext } from '../lib';
+import { Colors, ThemeContext, CreateNewFoundItem } from '../lib';
 import axios from 'axios';
 
-async function onNextButton() {
-  try {
-    const token = await axios.post('/post-found-item', {
-      newFoundItem:'found item beats'
-    })
-  } catch (err) {
-    throw new Error('Unable to make post new found item')
-  }
+async function navigateToNextScreen() {
+  // how to do it in router??
   //send us to next page
 }
 
@@ -21,7 +15,13 @@ async function onNextButton() {
 
 class FoundItemScreenContainer extends Component {
   render() {
-    return <FoundItemScreen setBgColor={this.context.changeThemeColor} />;
+    return (
+      <FoundItemScreen
+        createNewItem={CreateNewFoundItem}
+        navigate={navigateToNextScreen}
+        setBgColor={this.context.changeThemeColor}
+      />
+    );
   }
 }
 
