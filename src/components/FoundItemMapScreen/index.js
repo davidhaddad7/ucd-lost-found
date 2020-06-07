@@ -4,10 +4,9 @@ import { Colors } from '../../lib';
 import {
   Header,
   Card,
-  FakeSearchField,
-  SearchFieldMap
+  FakeSearchField
 } from '..';
-
+import { SearchFieldMapContainer } from '../../containers';
 
 class FoundItemMapScreen extends Component {
 
@@ -27,7 +26,7 @@ class FoundItemMapScreen extends Component {
           <section>
             <Header text="Input the found item" />
             <Card>
-              <SearchFieldMap />
+              <SearchFieldMapContainer />
             </Card>
           </section>
           <section>

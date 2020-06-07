@@ -2,12 +2,24 @@ import React from 'react';
 import './styles.css';
 
 export const InputField = (props) => {
-  const height = props.height || 'auto';
+
+  let { inputFieldProps, height, label } = props;
+
+  inputFieldProps = inputFieldProps || {};
+  height = height || 'auto';
+
+  const allInputProps = {
+    className: "input-field",
+    style: {
+      height
+    },
+    ...inputFieldProps
+  };
 
   return (
     <div className="input-field-container">
-      <div className="input-field-label" >{props.label}</div>
-      <input className="input-field" type='text' style={{ height}} />
+      <div className="input-field-label" >{label}</div>
+      <input {...allInputProps} />
     </div>
   )
 }

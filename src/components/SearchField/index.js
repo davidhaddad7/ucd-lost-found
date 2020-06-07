@@ -1,26 +1,24 @@
 import React, { Component } from 'react';
 import PlacesAutocomplete from 'react-places-autocomplete';
-
-
-
-
+import { InputField } from '..';
+import './styles.css';
 
 export const SearchField = (props) => {
 
   const {
-    tmpAddressValue,
-    onTmpAddressValueChange,
-    onPermanentAddressSelect,
+    searchFieldValue,
+    onSearchFieldValueChange,
+    onSuggestionSelect,
     suggestions: mapSuggs
   } = props;
 
   const renderSuggestions = (suggs, getSuggPrps) => {
-
     const suggestions = mapSuggs || suggs;
 
     return suggestions.map(curSugg => {
-
-      const suggItemProps = { ...getSuggPrps(curSugg, {}) };
+      const suggItemProps = { ...getSuggPrps(curSugg, {
+        className: "suggestion-item"
+      }) };
       return (
         <div {...suggItemProps}>
           {curSugg.description}
@@ -30,7 +28,6 @@ export const SearchField = (props) => {
   }
 
   const renderSearch = (args) => {
-
     const {
       getInputProps,
       suggestions : suggs,
@@ -40,16 +37,17 @@ export const SearchField = (props) => {
 
     const searchFieldProps = {
       ...getInputProps({
-        placeholder: 'Input Address or Select Place on the Map',
-        style: { width: '100%'}
+        placeholder: 'Input Address or Select Place on the Map'
       })
     };
 
     return (
       <div>
-        <input {...searchFieldProps} />
-        <div>
-          {loading ? <div>Loading...</div>: renderSuggestions(suggs, getSuggPrps)}
+        <InputField label="Location" inputFieldProps={searchFieldProps} />
+        <div className="suggestion-outer-container">
+          <div className="suggestion-inner-container">
+            {loading ? <div>Loading...</div>: renderSuggestions(suggs, getSuggPrps)}
+          </div>
         </div>
       </div>
     )
@@ -58,9 +56,9 @@ export const SearchField = (props) => {
   return (
     <div>
     <PlacesAutocomplete
-      value={tmpAddressValue}
-      onChange={onTmpAddressValueChange}
-      onSelect={onPermanentAddressSelect}
+      value={searchFieldValue}
+      onChange={onSearchFieldValueChange}
+      onSelect={onSuggestionSelect}
     >
     {renderSearch}
     </PlacesAutocomplete>
