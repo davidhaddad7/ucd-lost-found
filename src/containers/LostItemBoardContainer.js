@@ -157,7 +157,12 @@ function parseQuery(query) {
     else if (queryObject["location"] && !queryObject["category"])
     stringSearch += queryObject["location"];
   }
-  console.log(stringSearch);
+    // if no search filter
+  if (!queryObject["startdate"] && !queryObject["enddate"] 
+    && !queryObject["category"] && !queryObject["location"] )
+   {
+     stringSearch += "All";
+   }
   return(stringSearch);
 
 } 
