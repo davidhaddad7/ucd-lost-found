@@ -1,30 +1,32 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { FoundItemScreen } from '../components';
 import { Colors, ThemeContext, CreateNewFoundItem } from '../lib';
 import axios from 'axios';
 
-async function navigateToNextScreen() {
-  // how to do it in router??
-  //send us to next page
-}
+class FoundItemScreenContainerClass extends Component {
 
-// createNewFountItem(){
+  navigateToNextScreen = (id) => {
+    alert(id);
+    this.props.history.push(`/found-item-map/${id}`);
+  }
 
-// }
+  navigateToSearchScreen = () => {
+    this.props.history.push('/found-items-search');
+  }
 
-
-class FoundItemScreenContainer extends Component {
   render() {
     return (
       <FoundItemScreen
         createNewItem={CreateNewFoundItem}
-        navigate={navigateToNextScreen}
+        navigateToNextScreen={this.navigateToNextScreen}
+        navigateToSearchScreen={this.navigateToSearchScreen}
         setBgColor={this.context.changeThemeColor}
       />
     );
   }
 }
 
-FoundItemScreenContainer.contextType = ThemeContext;
+FoundItemScreenContainerClass.contextType = ThemeContext;
 
-export { FoundItemScreenContainer };
+export const FoundItemScreenContainer = withRouter(FoundItemScreenContainerClass);

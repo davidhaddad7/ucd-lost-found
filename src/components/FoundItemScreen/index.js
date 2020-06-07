@@ -19,34 +19,50 @@ class FoundItemScreen extends Component {
     props.setBgColor(Colors.lightOrange);
 
     this.state = {
-                  title: '',
-                  category:'',
-                  description:''
-                 };
+      title: '',
+      category:'',
+      description:'',
+      image: null
+     };
 
   }
 
   handleTitleChange = (event) => {
     event.preventDefault();
     this.setState({title: event.target.value});
-    console.log("title: ",this.state.title);
+    console.log("New title: ", event.target.value);
   }
 
   handleCategoryChange = (event) => {
+    event.preventDefault();
     this.setState({category: event.target.value});
-    console.log("category: ",this.state.category);
+    console.log("New category: ", event.target.value);
 
   }
   handleDescriptionChange = (event) => {
+    event.preventDefault();
     this.setState({description: event.target.value});
-    console.log("description: ",this.state.description);
+    console.log("New description: ",event.target.value);
   }
 
-  // onError
+  handleImageChange = (newImage) => {
+    this.setState({
+      image: newImage
+    });
+    console.log("New image: ", newImage);
+  }
 
-  onNextButton = (event) => {
-    this.props.createNewItem();
-    this.props.navigate();
+
+  handleNextButtonClick = async (event) => {
+    event.preventDefault();
+    try {
+      const newItemId = await this.props.createNewItem();
+      this.props.navigateToNextScreen(newItemId);
+    }
+    catch(e) {
+      alert("Failed to store a new found item and navigate to the next screen");
+      console.error(e);
+    }
   }
 
   buttonStyle = {
@@ -71,11 +87,11 @@ class FoundItemScreen extends Component {
               <InputTextArea label="Description" type="text" value={this.state.description} onChange={this.handleDescriptionChange} />
 
               {/* Image */}
-              <InputFile label="Attach a photo (optional)" />
+              <InputFile onNewFile={this.handleImageChange} label="Attach a photo (optional)" />
               <div className="found-item-screen-line-aligned-right">
                 <Button
                   text="Next"
-                  onClick={() => console.log("Clicked")}
+                  onClick={this.handleNextButtonClick}
                   style={this.buttonStyle}
                 />
               </div>
@@ -83,7 +99,7 @@ class FoundItemScreen extends Component {
           </section>
           <section>
             <Header text="Or search for existing requests" />
-            <FakeSearchField />
+            <FakeSearchField onClick={this.props.navigateToSearchScreen} />
           </section>
         </main>
     );

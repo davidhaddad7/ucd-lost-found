@@ -2,6 +2,10 @@
   margin-bottom: 0.5em;
 }
 
+.input-file-btn-not-displayed {
+  display: none;
+}
+
 .input-file-label {
   font-size: .9em;
   margin-bottom: .4em;
