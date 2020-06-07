@@ -4,7 +4,7 @@ import { ThemeContext } from '../lib';
 import {
   useLocation
 } from "react-router-dom";
-import moment, { invalid } from 'moment';
+import moment  from 'moment';
 
 
 
