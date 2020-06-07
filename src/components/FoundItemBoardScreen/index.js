@@ -2,34 +2,26 @@ import React, { Component } from 'react';
 import { BoardItem, Header, SearchLine } from '..';
 import { Colors } from '../../lib';
 
-class FoundItemBoardScreen extends Component {
 
-  constructor(props) {
-    super(props);
-    props.setBgColor(Colors.white);
-    const { searchText, itemsData } = this.props;
-    this.state = { searchText, itemsData };
-  }
+export const FoundItemBoardScreen = (props) => {
 
-  renderBoardItems() {
-    return this.state.itemsData.map(item => (
-      <BoardItem
-        key={item.id}
-        bgColor={Colors.lightOrange}
-        itemData={item}
-      />
-    ));
-  }
+  const { setBgColor,  searchText, itemsData } = props;
 
-  render() {
-    return (
-      <section>
-        <Header text="Showing results for" />
-        <SearchLine text={this.state.searchText} />
-        {this.renderBoardItems()}
-      </section>
-    );
-  }
+  props.setBgColor(Colors.white);
+
+  return (
+    <section>
+      <Header text="Showing results for" />
+      <SearchLine text={searchText} />
+      {
+        itemsData.map(item => (
+          <BoardItem
+            key={item.id}
+            bgColor={Colors.lightOrange}
+            itemData={item}
+          />
+        ))
+      }
+    </section>
+  );
 }
-
-export { FoundItemBoardScreen };

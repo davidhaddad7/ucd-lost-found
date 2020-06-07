@@ -1,4 +1,4 @@
-import React, { Component, useState, useContext } from 'react';
+import React, { Component, useState, useContext, useEffect } from 'react';
 import { FoundItemBoardScreen } from '../components';
 import { ThemeContext , GetItemsData} from '../lib';
 import {
@@ -13,33 +13,18 @@ function FoundItemBoardContainer() {
 
   const context = useContext(ThemeContext);
   const query = new URLSearchParams(useLocation().search);
+  const queryIDList = query.get("ids");
+  const searchText = parseQuery(query);
 
   const [itemsData, setItemsData] = useState([]);
-  let searchText = parseQuery(query);
 
-  // get IDs
-  let queryIDList = query.get("ids");
-
-  GetItemsData(queryIDList)
-    .then((retrievedData)=> {
-
-      if (!isInitialized) {
-        isInitialized = true;
-        setItemsData(retrievedData)
-        console.log(retrievedData);
-      }
-      
-    })
-    .catch((e) => {
-      // handle promises
-      alert("query ID List problem");
-    });
-
-// alt to constructor using hooks
-
-  // letparseIdQuery(query);
-
-  // console.log(itemsData);
+  useEffect(() => {
+    GetItemsData(queryIDList)
+      .then((data) => {
+        console.log(data);
+        setItemsData(data);
+      })
+  }, []);
 
   return (
     <FoundItemBoardScreen
@@ -52,4 +37,3 @@ function FoundItemBoardContainer() {
 }
 
 export { FoundItemBoardContainer };
-
