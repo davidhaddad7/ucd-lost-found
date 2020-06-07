@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { FoundItemBoardScreen } from '../components';
 import { ThemeContext } from '../lib';
-
-
+import {
+  BrowserRouter as Router,
+  Link,
+  useLocation
+} from "react-router-dom";
 
 
 
@@ -59,7 +62,9 @@ const MOCKED_DATA = {
   ]
 }
 
-
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 class FoundItemBoardContainer extends Component {
 
   constructor(props) {
@@ -70,18 +75,44 @@ class FoundItemBoardContainer extends Component {
       itemsData: MOCKED_DATA.itemsData
     }
   }
-
+    
   render() {
+    let query = useQuery();
     return (
       <FoundItemBoardScreen
         setBgColor={this.context.changeThemeColor}
         searchText={this.state.searchText}
         itemsData={this.state.itemsData}
       />
+
+      <queryTitle title={query.get("title")}/> 
+      // description={query.get("description")}
+      // id={query.get("description")}
+      // category={query.get("description")}
+      // date={query.get("date")}
+      // ></queryTitle>
     );
   }
 }
 
+
+
 FoundItemBoardContainer.contextType = ThemeContext;
 
 export { FoundItemBoardContainer };
+
+// const queryArray = ["title" , "category","description","date","id"];
+function queryTitle({ name }) {
+  return (
+    <div>
+      {name ? (
+        <h3>
+          The <code>name</code> in the query string is &quot;{name}
+          &quot;
+        </h3>
+      ) : (
+        <h3>There is no name in the query string</h3>
+      )}
+    </div>
+  );
+}

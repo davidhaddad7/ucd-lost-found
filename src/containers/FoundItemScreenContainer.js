@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { FoundItemScreen } from '../components';
-import { Colors, ThemeContext, CreateNewFoundItem } from '../lib';
-import axios from 'axios';
+import {  ThemeContext, CreateNewFoundItem } from '../lib';
 
 class FoundItemScreenContainerClass extends Component {
 
