@@ -1,0 +1,38 @@
+.home-container {
+  font-size: .9em;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-container section {
+  padding-top: 5em;
+}
+
+.home-container h2 {
+  margin-bottom: 1.5em;
+  line-height: 130%;
+}
+
+/* Tablets & landscape mode phones */
+@media only screen and (min-width: 1025px) {
+
+  .home-container section:first-of-type {
+    margin-right: 2em;
+  }
+
+  .home-container section {
+    padding-top: 10em;
+  }
+
+  .home-container {
+    flex-direction: row;
+    font-size: 1em;
+    justify-content: space-between;
+  }
+
+  .home-container section {
+    display: flex;
+    flex-direction: column;
+  }
+
+}

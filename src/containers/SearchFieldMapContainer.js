@@ -7,13 +7,13 @@ import {
 } from 'react-places-autocomplete';
 
 
+// expects this.props.onAddressChange, address
 class SearchFieldMapContainer extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      permanentAddress: "",
       tmpAddress: "",
       coordinates: null,
       suggestions: null
@@ -21,15 +21,16 @@ class SearchFieldMapContainer extends Component {
   }
 
   onTmpAddressChange = (tmpAddress) => {
-    this.setState({ tmpAddress, suggestions: null, permanentAddress: "" });
+    this.props.onAddressChange("");
+    this.setState({ tmpAddress, suggestions: null});
   }
 
   onPermanentAddressSelect = async (permanentAddress) => {
     try {
       const results = await geocodeByAddress(permanentAddress);
       const coordinates = await getLatLng(results[0]);
+      this.props.onAddressChange(permanentAddress);
       this.setState({
-        permanentAddress,
         coordinates,
         tmpAddress: permanentAddress,
         suggestions: null
@@ -39,8 +40,8 @@ class SearchFieldMapContainer extends Component {
       alert(`Failed to get coordinates for the address: ${permanentAddress}`);
       console.error(
         `Failed to get coordinates for the address: ${permanentAddress}`, e);
+      this.onAddressChange("");
       this.setState ({
-        permanentAddress: "",
         tmpAddress: "",
         coordinates: null,
         suggestions: null
@@ -65,8 +66,8 @@ class SearchFieldMapContainer extends Component {
     catch(e) {
       alert("Failed to generate suggestions on map click");
       console.error("Failed to generate suggestions on map click", e);
+      this.onAddressChange("");
       this.setState ({
-        permanentAddress: "",
         tmpAddress: "",
         coordinates: null,
         suggestions: null
@@ -81,7 +82,7 @@ class SearchFieldMapContainer extends Component {
         searchFieldValue={this.state.tmpAddress}
         coordinates={this.state.coordinates}
         onSearchFieldValueChange={this.onTmpAddressChange}
-        onSuggestionSelect={this.onPermanentAddressSelect}
+        onSuggestionSelect={this.onAddressChange}
         onMapClick={this.onMapLocationSelect}
       />
     )

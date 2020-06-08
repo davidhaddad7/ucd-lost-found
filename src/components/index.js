@@ -20,3 +20,4 @@ export * from './SearchField';
 export * from './SearchFieldMap';
 export * from './DatePicker';
 export * from './TimePicker';
+export * from './HomeScreen';
