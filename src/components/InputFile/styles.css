@@ -10,6 +10,10 @@
   background-color: var(--lightGray);
 }
 
+.input-file-btn-not-displayed {
+  display: none;
+}
+
 .input-file-btn:active {
   opacity: .7;
 }

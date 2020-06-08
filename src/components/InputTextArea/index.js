@@ -1,13 +1,18 @@
 import React from 'react';
 import './styles.css';
+import { Label } from '..';
 
 export const InputTextArea = (props) => {
 
+  const { label, onChange } = props;
+
   return (
     <div className="input-textarea-container">
-      <div className="input-textarea-label" >{props.label}</div>
+      <Label text={label} />
       <textarea
-        className="input-textarea" />
+        onChange={onChange}
+        className="input-textarea"
+      />
     </div>
   )
 }

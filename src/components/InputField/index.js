@@ -4,13 +4,14 @@ import './styles.css';
 
 export const InputField = (props) => {
 
-  let { inputFieldProps, height, label } = props;
+  let { inputFieldProps, height, label, onChange } = props;
 
   inputFieldProps = inputFieldProps || {};
   height = height || 'auto';
 
   const allInputProps = {
     className: "input-field",
+    onChange,
     style: {
       height
     },

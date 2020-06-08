@@ -17,11 +17,56 @@ class FoundItemScreen extends Component {
   constructor(props) {
     super(props);
     props.setBgColor(Colors.lightOrange);
+
+    this.state = {
+      title: '',
+      category:'',
+      description:'',
+      image: null
+     };
   }
 
   buttonStyle = {
     backgroundColor: Colors.darkOrange,
     color: Colors.white
+  }
+
+  handleTitleChange = (event) => {
+    event.preventDefault();
+    this.setState({title: event.target.value});
+    console.log("New title: ", event.target.value);
+  }
+
+  handleCategoryChange = (event) => {
+    event.preventDefault();
+    this.setState({category: event.target.value});
+    console.log("New category: ", event.target.value);
+
+  }
+  handleDescriptionChange = (event) => {
+    event.preventDefault();
+    this.setState({description: event.target.value});
+    console.log("New description: ",event.target.value);
+  }
+
+  handleImageChange = (newImage) => {
+    this.setState({
+      image: newImage
+    });
+    console.log("New image: ", newImage);
+  }
+
+
+  handleNextButtonClick = async (event) => {
+    event.preventDefault();
+    try {
+      const newItemId = await this.props.createNewItem();
+      this.props.navigateToNextScreen(newItemId);
+    }
+    catch(e) {
+      alert("Failed to store a new found item and navigate to the next screen");
+      console.error(e);
+    }
   }
 
   render() {
@@ -30,14 +75,27 @@ class FoundItemScreen extends Component {
           <section>
             <Header text="Input the found item" />
             <Card>
-              <InputField label="Title" />
-              <InputField label="Category" />
-              <InputTextArea label="Description" />
-              <InputFile label="Attach a photo (optional)" />
+              <InputField
+                type="text" label="Title"
+                value={this.state.title} onChange={this.handleTitleChange}
+              />
+              <InputField
+                label="Category" type="text"
+                value={this.state.category} onChange={this.handleCategoryChange}
+              />
+              <InputTextArea
+                label="Description" type="text"
+                value={this.state.description}
+                onChange={this.handleDescriptionChange}
+              />
+              <InputFile
+                onNewFile={this.handleImageChange}
+                label="Attach a photo (optional)"
+              />
               <div className="found-item-screen-line-aligned-right">
                 <Button
                   text="Next"
-                  onClick={() => console.log("Clicked")}
+                  onClick={this.handleNextButtonClick}
                   style={this.buttonStyle}
                 />
               </div>
@@ -45,7 +103,7 @@ class FoundItemScreen extends Component {
           </section>
           <section>
             <Header text="Or search for existing requests" />
-            <FakeSearchField />
+            <FakeSearchField onClick={this.props.navigateToSearchScreen} />
           </section>
         </main>
     );
