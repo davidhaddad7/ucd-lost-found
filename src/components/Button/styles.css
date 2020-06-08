@@ -19,23 +19,33 @@
 
 
 .btn-size-big {
-  font-size: 5em;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 
-/* Tablets & landscape mode phones */
-@media only screen and (min-width: 700px) {
+  /* Tablets & landscape mode phones */
+  @media only screen and (min-width: 700px) {
 
-  .btn-size-small {
-    font-size: 1em;
+    .btn-size-small {
+      font-size: 1em;
+    }
+
+    .btn-size-medium {
+      font-size: 1.2em;
+    }
+
+    .btn-size-big {
+      font-size: 3.5em;
+    }
+
   }
 
-  .btn-size-medium {
-    font-size: 1.2em;
-  }
+  /* Tablets & landscape mode phones */
+  @media only screen and (min-width: 1025px) {
 
-  .btn-size-big {
-    font-size: 11em;
-  }
+    .btn-size-big {
+      font-size: 3em;
+    }
 
-}
+  }

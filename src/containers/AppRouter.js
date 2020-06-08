@@ -10,6 +10,7 @@ import {
   LostItemScreenContainer,
   LostItemBoardContainer,
   FoundItemMapScreenContainer,
+  HomeScreenContainer
 } from '.';
 
 
@@ -21,8 +22,7 @@ export const AppRouter = () => {
   return (
     <Router>
       <NavBar logoRoutePath="/" />
-      <Route exact path="/" component={Dummy} />
-      <Route exact path="/home" component={Dummy} />
+      <Route exact path="/" component={HomeScreenContainer} />
       <Route exact path="/found-item" component={FoundItemScreenContainer} />
       <Route exact path="/found-item-map/:id" component={FoundItemMapScreenContainer} />
       <Route exact path="/found-items-board" component={FoundItemBoardContainer} />

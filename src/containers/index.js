@@ -5,3 +5,4 @@ export * from './FoundItemBoardContainer';
 export * from './LostItemScreenContainer';
 export * from './LostItemBoardContainer';
 export * from './FoundItemMapScreenContainer';
+export * from './HomeScreenContainer';
