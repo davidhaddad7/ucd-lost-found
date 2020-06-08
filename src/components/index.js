@@ -1,5 +1,6 @@
 export * from './NavBar';
 export * from './App';
+export * from './Label';
 export * from './FoundItemScreen';
 export * from './LostItemScreen'
 export * from './FoundItemBoardScreen';
@@ -17,3 +18,5 @@ export * from './FoundItemMapScreen';
 export * from './Map';
 export * from './SearchField';
 export * from './SearchFieldMap';
+export * from './DatePicker';
+export * from './TimePicker';

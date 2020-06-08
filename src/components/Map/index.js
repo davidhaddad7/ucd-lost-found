@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import { GoogleMapKey } from '../../lib';
+import './styles.css';
 
 class Map extends Component {
 
@@ -14,7 +15,7 @@ class Map extends Component {
     const coordinates = this.props.coordinates || Map.defaultCoordinates;
 
     return (
-      <div style={{ width: '100%', height: '50vh' }}>
+      <div className="map-container">
         <GoogleMapReact
           onClick={this.props.onMapClick}
           bootstrapURLKeys={{ key: GoogleMapKey }}

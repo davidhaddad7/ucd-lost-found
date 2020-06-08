@@ -1,4 +1,5 @@
 import React from 'react';
+import { Label } from '..';
 import './styles.css';
 
 export const InputField = (props) => {
@@ -18,7 +19,7 @@ export const InputField = (props) => {
 
   return (
     <div className="input-field-container">
-      <div className="input-field-label" >{label}</div>
+      <Label text={label} />
       <input {...allInputProps} />
     </div>
   )

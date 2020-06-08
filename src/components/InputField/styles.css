@@ -4,11 +4,6 @@
   flex-direction: column;
 }
 
-.input-field-label {
-  font-size: .9em;
-  margin-bottom: .4em;
-}
-
 .input-field {
   background-color: var(--lightGray);
   border: none;
@@ -17,14 +12,8 @@
   color: var(--darkBlue);
 }
 
-
-
 /* Tablets & landscape mode phones */
 @media only screen and (min-width: 700px) {
-
-  .input-field-label {
-    font-size: 1em;
-  }
 
   .input-field {
     font-size: 1em;

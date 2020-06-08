@@ -1,15 +1,6 @@
-.date-container{
-    display: flex;
-    padding-bottom: 2em;
-}
+.date-time-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1em;
 
-.month-day-year-container{
-    flex:1;
-}
-
-.hour-minute-container{
-    justify-content:left;
-    align-items: left;
-    flex:10;
-    padding-left:0.5em
 }

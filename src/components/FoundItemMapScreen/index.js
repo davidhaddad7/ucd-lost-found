@@ -4,35 +4,20 @@ import { Colors } from '../../lib';
 import {
   Header,
   Card,
-  FakeSearchField
+  FakeSearchField,
+  DatePicker,
+  TimePicker,
+  Label
 } from '..';
 import { SearchFieldMapContainer } from '../../containers';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+
 
 class FoundItemMapScreen extends Component {
 
   constructor(props) {
     super(props);
     props.setBgColor(Colors.lightOrange);
-    this.state = {
-      Date: new Date(),
-      hourDate: new Date(),
-      location: null
-    };
   }
- 
-  setDate = date => {
-    this.setState({
-      Date: date
-    });
-  };
-
-  setHourDate = date => {
-    this.setState({
-      hourDate: date
-    });
-  };
 
   buttonStyle = {
     backgroundColor: Colors.darkOrange,
@@ -40,31 +25,24 @@ class FoundItemMapScreen extends Component {
   }
 
   render() {
+    const { onDateChange, onTimeChange, date, time } = this.props;
+
     return (
         <main>
           <section>
             <Header text="Input the found item" />
             <Card>
-              <div className = "date-container">
-                <div className = "month-day-year-container">
-                  <DatePicker 
-                  selected={this.state.Date} 
-                  onChange={date => this.setDate(date)} 
-                  />
-                </div>
-                <div className = "hour-minute-container">
-                  <DatePicker
-                      selected={this.state.hourDate}
-                      onChange={date => this.setHourDate(date)}
-                      showTimeSelect
-                      showTimeSelectOnly
-                      timeIntervals={15}
-                      timeCaption="Time"
-                      dateFormat="h:mm aa"
-                  />
-                </div>
+              <Label text="Date & Time" />
+              <div className="date-time-container">
+                <DatePicker
+                  value={date}
+                  onChange={onDateChange}
+                />
+                <TimePicker
+                  value={time}
+                  onChange={onTimeChange}
+                />
               </div>
-            
               <SearchFieldMapContainer />
             </Card>
           </section>
