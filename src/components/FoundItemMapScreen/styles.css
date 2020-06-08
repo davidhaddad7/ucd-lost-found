@@ -1,0 +1,6 @@
+.date-time-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1em;
+
+}

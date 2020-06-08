@@ -1,0 +1,8 @@
+.time-picker-input {
+  max-width: 5em;
+  margin-left: 2em;
+  padding: .5em;
+  border: 0;
+  font-size: .9em;
+  background-color: var(--lightGray);
+}

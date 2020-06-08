@@ -1,0 +1,33 @@
+.suggestion-outer-container {
+  position: relative;
+  top: -1em;
+}
+
+.suggestion-inner-container {
+  background-color: var(--medGray);
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+
+.suggestion-item {
+  padding: .3em .7em;
+  cursor: pointer;
+  line-height: 130%;
+  font-size: .9em;
+}
+
+.suggestion-item:first-of-type {
+  margin-top: .5em;
+}
+
+.suggestion-item:last-of-type {
+  margin-bottom: .5em;
+}
+
+/* Tablets & landscape mode phones */
+@media only screen and (min-width: 700px) {
+  .suggestion-item {
+    font-size: 1em;
+  }
+}

@@ -1,0 +1,11 @@
+.label {
+  font-size: .9em;
+  margin-bottom: .4em;
+}
+
+/* Tablets & landscape mode phones */
+@media only screen and (min-width: 700px) {
+  .input-file-label {
+    font-size: 1em;
+  }
+}
