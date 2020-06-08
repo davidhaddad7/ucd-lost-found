@@ -23,8 +23,9 @@ class InputFile extends Component {
     if (newFile) {
       const fileReader = new FileReader();
       fileReader.addEventListener("load", (event) => {
+        const res = event.target.result.split("base64,")[1];
         // Send only base64 data to the parent
-        this.props.onNewFile(event.target.result);
+        this.props.onNewFile(res);
       });
       fileReader.readAsDataURL(newFile);
     }
