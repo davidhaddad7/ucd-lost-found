@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from '..';
 import './styles.css';
 import { Colors } from '../../lib';
 import {
@@ -12,47 +13,62 @@ import {
 import { SearchFieldMapContainer } from '../../containers';
 
 
-class FoundItemMapScreen extends Component {
+export const FoundItemMapScreen = (props) => {
 
-  constructor(props) {
-    super(props);
-    props.setBgColor(Colors.lightOrange);
-  }
+  const {
+    onAddressChange,
+    onDateChange,
+    onTimeChange,
+    date,
+    time,
+    address,
+    navigateToLostItemsBoardScreen,
+    setBgColor,
+    navigateToSearchScreen
+  } = props;
 
-  buttonStyle = {
+  const submitButtonStyle = {
     backgroundColor: Colors.darkOrange,
     color: Colors.white
   }
 
-  render() {
-    const { onDateChange, onTimeChange, date, time } = this.props;
+  setBgColor(Colors.lightOrange);
 
-    return (
-        <main>
-          <section>
-            <Header text="Input the found item" />
-            <Card>
-              <Label text="Date & Time" />
-              <div className="date-time-container">
-                <DatePicker
-                  value={date}
-                  onChange={onDateChange}
-                />
-                <TimePicker
-                  value={time}
-                  onChange={onTimeChange}
-                />
-              </div>
-              <SearchFieldMapContainer />
-            </Card>
-          </section>
-          <section>
-            <Header text="Or search for existing requests" />
-            <FakeSearchField />
-          </section>
-        </main>
-    );
-  }
+
+
+  return (
+      <main>
+        <section>
+          <Header text="Input the found item" />
+          <Card>
+            <Label text="Date & Time" />
+            <div className="date-time-container">
+              <DatePicker
+                value={date}
+                onChange={onDateChange}
+              />
+              <TimePicker
+                value={time}
+                onChange={onTimeChange}
+              />
+            </div>
+            <SearchFieldMapContainer
+              onAddressChange={onAddressChange}
+              address={address}
+            />
+            <div className="found-item-map-screen-line-aligned-right">
+              <Button
+                text="Submit"
+                onClick={navigateToLostItemsBoardScreen}
+                style={submitButtonStyle}
+              />
+            </div>
+          </Card>
+        </section>
+        <section>
+          <Header text="Or search for existing requests" />
+          <FakeSearchField onClick={navigateToSearchScreen} />
+        </section>
+      </main>
+  );
 }
-
-export { FoundItemMapScreen };
